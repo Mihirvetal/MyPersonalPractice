@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <button class="save">Save</button>
+
+    </form>
+</body>
+</html>
+
+<script>
+    let save = document.querySelector(".save").addEventListener("click" , namefn)
+
+    function namefn(){
+        // event.preventDefault()
+        let getvalue = document.querySelector("#name").value
+        let name = localStorage.setItem("name",getvalue)
+        if (getvalue) {
+            alert("Name has been assigned")
+        }else{
+            alert("Please Enter Your Name")
+
+        }
+
+        
+
+    }
+    
+
+</script>

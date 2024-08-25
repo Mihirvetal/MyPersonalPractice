@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body">
+    <p>Dark Mode</p>
+    <button id="dark">Dark</button><button id="light">Light</button>
+</body>
+</html>
+<script>
+    let dark = document.querySelector("#dark").addEventListener("click", darkfn)
+    let light = document.querySelector("#light").addEventListener("click", lightfn)
+
+    function darkfn(){
+        let darkmode = document.querySelector(".body")
+        darkmode.style.backgroundColor = "black";
+        darkmode.style.color = "white";
+    }
+    function lightfn(){
+        let lightmode = document.querySelector(".body")
+        lightmode.style.backgroundColor = "white";
+        lightmode.style.color = "black";
+    }
+
+
+</script>

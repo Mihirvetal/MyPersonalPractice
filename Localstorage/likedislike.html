@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://th.bing.com/th/id/OIP.XGQEfPyxjErCtNLXGF45cAHaEK?w=313&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="">
+        <br>
+        <p>Like: <span id="likecount">0</span></p>
+        <p>DisLike: <span id="dislikecount">0</span></p>
+        <br>
+        <button id="like">Like</button><button id="dislike">Dislike</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // let like = document.querySelector("#like").addEventListener("click", likefn)
+    // let dislike = document.querySelector("#dislike").addEventListener("click", dislikefn)
+    // let LC = 0;
+    // let DLC = 0;
+    // function likefn() {
+    //     let likecount = document.querySelector("#likecount")
+    //     let likes = likecount.innerHTML = LC++
+    //     localStorage.setItem('likes',likes)
+    // }
+
+    // function dislikefn(){
+    //     let dislikecount = document.querySelector("#dislikecount")
+    //     dislikecount.innerHTML = DLC++
+    //     localStorage.setItem('dislikes', dislikecount)
+    // }
+    let lc;
+    if (localStorage.getItem('likes') == null) {
+        lc = 0;
+    }else{
+        lc = localStorage.getItem('likes')
+
+    }
+    document.querySelector("#likecount").innerHTML = lc
+    let dlc;
+     if (localStorage.getItem('dislikes') == null){
+        dlc = 0;
+
+     }else{
+        dlc = localStorage.getItem('dislikes')
+     }
+    document.querySelector("#dislikecount").innerHTML = dlc
+
+    document.querySelector("#like").addEventListener("click", likefn);
+
+    function likefn() {
+        lc++
+        document.querySelector("#likecount").innerHTML = lc
+        localStorage.setItem('likes', lc)
+    }
+
+    document.querySelector("#dislike").addEventListener("click", dislikefn);
+
+    function dislikefn() {
+        dlc++
+        localStorage.setItem('dislikes', dlc)
+        document.querySelector("#dislikecount").innerHTML = dlc
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

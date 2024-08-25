@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="body">
+
+</body>
+<button id="change">Change</button>
+<button id="stop">stop</button>
+
+</html>
+
+<script>
+    const colors = ["Red", "Blue", "Green", "Yellow", "Purple", "Orange", "Pink", "Brown", "Black", "White", "Cyan", "Magenta", "Teal", "Lime", "Olive", "Navy", "Gray", "Maroon", "Lavender", "Coral"];
+    let Body = document.querySelector("#body");
+    let changeit = document.querySelector("#change").addEventListener("click", changeclr);
+    let stopp = document.querySelector("#stop").addEventListener("click",stopclr)
+
+    let i = 1;
+    let start;
+    function changeclr() {
+        start = setInterval(() => {
+        if (i < colors.length) {
+            Body.style.backgroundColor = colors[i]
+            i++
+        } else {
+            i = 0
+        }
+    },1000);
+}
+
+function stopclr(){
+    alert("Now the Color Changer is stoped")
+    clearInterval(start)
+    Body.style.backgroundColor = "white";
+}
+    
+
+</script>

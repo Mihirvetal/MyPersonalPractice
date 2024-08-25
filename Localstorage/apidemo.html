@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .display{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:2px
+    }
+</style>
+<body>
+    <div class="display">
+
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let display = document.querySelector(".display");
+
+
+
+        (async function fetchfn() {
+            let res = await fetch("https://jsonplaceholder.typicode.com/photos");
+            let data = await res.json();
+            displayfn(data)
+        })()
+
+    function displayfn(data) {
+        let cards = data.map((e) => {
+            console.log(e);
+            return `
+            <div class="card">
+                <img src="${e.url}" alt="">
+                <h2>${e.title}</h2> 
+            </div>
+             `
+            
+        }).join("");
+
+        display.innerHTML = cards;
+
+    }
+
+
+
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <img id="imgs" alt="" width="800px" height="500px">
+    </div>
+    <button id="start">Start</button><button id="stop">Stop</button>
+</body>
+
+</html>
+<script>
+    let image = document.querySelector("#imgs");
+    let start = document.querySelector("#start").addEventListener("click", startfn);
+    let stop = document.querySelector("#stop").addEventListener("click", stopfn);
+    let currimage = 0
+    let Slide;
+    let i=1;
+
+    let images = ["https://th.bing.com/th/id/OIP.byIfDTOVn7UEkrCl-SjfGwHaEK?w=328&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7", "https://cdn.pixabay.com/photo/2024/08/01/08/17/dahlia-8936439_640.jpg", "https://cdn.pixabay.com/photo/2022/04/02/14/40/hearts-7107142_640.jpg","https://th.bing.com/th/id/OIP.HwedDVvHmxtpKkbRtBOC8wHaE8?w=245&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7","https://th.bing.com/th/id/OIP.KsVRbnQ557wFTuB92eS1-gHaEK?w=291&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"];
+
+    image.src = images[0]
+    function startfn() {
+        Slide = setInterval(() => {
+            console.log(i);
+            if (i < images.length) {
+                image.src = images[i]
+                i++
+                
+            } else {
+                i=0;
+            }
+        }, 1000);
+    }
+    
+    function stopfn() {
+        clearInterval(Slide)
+
+    }
+
+
+
+</script>
