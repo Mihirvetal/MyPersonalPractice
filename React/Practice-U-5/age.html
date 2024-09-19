@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+       
+      
+const App = () => {
+    let { useState } = React;
+    let [title, setTitle] = useState("");
+    let [age, setAge] = useState(0);
+    let [married, setMarried] = useState(false);
+  
+    const handleSubmit = () => {
+      console.log({ title, age, married });
+    };
+  
+    return (
+      <div>
+        <h2>Code works!</h2>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+        />
+        <input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          placeholder="Age"
+        />
+        <select value={married} onChange={(e) => setMarried(e.target.value === "Yes")}>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+    );
+  };
+  
+  let root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<App />);
+  
+
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>
+
+
+
+

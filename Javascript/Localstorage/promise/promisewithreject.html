@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises Example with Errors</title>
+  </head>
+  <body>
+    <script>
+      function washClothes(time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (time < 1000) {
+              reject("Washing time too short!");
+            } else {
+              console.log("Clothes are washed!");
+              resolve("washed");
+            }
+          }, time);
+        });
+      }
+
+      function dryClothes(time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (time < 2000) {
+              reject("Drying time too short!");
+            } else {
+              console.log("Clothes are dry!");
+              resolve("dry");
+            }
+          }, time);
+        });
+      }
+
+      function foldClothes(time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (time < 1500) {
+              reject("Folding time too short!");
+            } else {
+              console.log("Clothes are folded!");
+              resolve("folded");
+            }
+          }, time);
+        });
+      }
+
+      function ironClothes(time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (time < 1000) {
+              reject("Ironing time too short!");
+            } else {
+              console.log("Clothes are ironed!");
+              resolve("ironed");
+            }
+          }, time);
+        });
+      }
+
+      function wearClothes(time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (time < 500) {
+              reject("Wearing time too short!");
+            } else {
+              console.log("Clothes are worn!");
+              resolve("worn");
+            }
+          }, time);
+        });
+      }
+
+      // Sequentially process clothes with promises and error handling
+      washClothes(2000)
+        .then(() => dryClothes(2500))
+        .then(() => foldClothes(2000))
+        .then(() => ironClothes(1000))
+        .then(() => wearClothes(1000))
+        .then(() => console.log("All tasks completed successfully!"))
+        .catch(err => console.error(err));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/babel">
+        const { useState } = React;
+        const Fetchdata = () => {
+            let [data, setData] = useState([])
+
+            const handleclick = () => {
+                axios.get("https://jsonplaceholder.typicode.com/posts")
+                    .then((res) => { console.log(res.data)
+                setData(res.data)
+            })
+        }
+        return (
+            <div>
+                <button onClick={handleclick}> fetch</button>
+                <ol>
+                    {
+                        data.map((el, i) => {
+                            return (
+                                <li key={i}>{el.title}</li>
+                            )
+                        })
+                    }
+                </ol>
+            </div>
+        )
+        }
+
+        const App = () => {
+            return (
+                <>
+                    <h1>hello</h1>
+
+                    <Fetchdata />
+                </>
+            )
+
+        }
+
+
+
+
+
+
+
+
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+        root.render(<App />)
+    </script>
+</body>
+
+</html>
