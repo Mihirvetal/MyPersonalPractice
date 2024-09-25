@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        background-color: rgb(130, 129, 129);
+    }
+</style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>  
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    const Form = ({color,setColor}) => {
+        
+
+        const handleOnchange=(e)=>{
+            const po = e.target.value
+            setColor(po) 
+        }
+
+
+        return (
+            <>
+                    <label for="color">Input Color</label>
+                    <input type="text" id="color"
+                    value={color} onChange={handleOnchange}
+                    />
+
+                    
+            </>
+        )
+    }
+
+
+
+    const App = () => {
+        const [color,setColor] = React.useState("#000000")
+        return (
+            <>
+            <Form color={color} setColor={setColor}/>
+            <div id="box" style={{width:"100px",height:"100px",backgroundColor:color}}></div>
+            </>
+        )
+
+
+    }
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />)
+</script>
+
+</html>
