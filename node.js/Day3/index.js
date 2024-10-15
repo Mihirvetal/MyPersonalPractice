@@ -12,7 +12,7 @@ app.get('/html', (req,res)=>{
     return res.send('<h1 style="font-size:58px">Mihir</h1>')
 })
 app.post('/',(req,res)=>{
-    return res.end("post index")
+    return res.end("post index 1")
 })
 app.get('/date', (req, res) => {
     return res.send(new Date().toUTCString()); // Sends the current date
