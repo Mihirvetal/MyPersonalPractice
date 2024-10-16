@@ -1,0 +1,1 @@
+// Middleware in Express.js refers to functions that have access to the request (req), response (res), and the next function in the application's request-response cycle. These functions can modify the req and res objects, end the request-response cycle, or pass control to the next middleware function in the stack using the next() function.
