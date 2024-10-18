@@ -11,21 +11,37 @@ app.use((req, res, next) => {
   // next use hota he ki agar hume is {use} ka response nahi chaiye or iske baad ke response chaiye toh hum next() MW ka use karte he or yeh ek callback hota he
 }); // {use} to create the MW or like a global MW
 
+app.use(express.json())
 app.get("/", (req, res) => {
   return res.send(
     '<body style="background-color:Black; color:white"><p style="font-size:120px">Mihir</p></body> '
   );
 });
-app.use((req, res, next) => {
-//   console.log("object", req.url);
-  next();
-});
-app.get("/", (req, res) => {
-  return res.send(
-    '<body style="background-color:green; color:white"><p style="font-size:120px">Mihir</p></body> '
-  );
+// app.use((req, res, next) => {
+// //   console.log("object", req.url);
+//   next();
+// });
+app.get("/profile", (req, res) => {
+    if (req.url=== "/profile"){
+        return res.send("YOU")
+    }
+
 });
 
+const usersdata = [];
+app.post('/hi',(req,res)=>{
+  const data =req.body;
+  usersdata.push(data)
+  console.log("data", usersdata);
+  
+
+  return res.send("done")
+})
+
+// app.get('/data' , (req,res)=>{
+//   console.log(usersdata);
+//   return res.send("s")
+// })
 app.listen(5000, () => {
   console.log("http://localhost:5000");
 });
