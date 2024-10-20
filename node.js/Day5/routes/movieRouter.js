@@ -21,7 +21,7 @@ movierouter.get('/:id', (req,res)=>{
 
 
 // post method to add movies in database
-movierouter.post('/addmovie' , async (req,res) =>{
+movierouter.post('/' , async (req,res) =>{
     const data = req.body;
     await Moviemodel.insertMany(data);
     return res.send('movie added')
