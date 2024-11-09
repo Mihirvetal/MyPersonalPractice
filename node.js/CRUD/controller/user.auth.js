@@ -6,7 +6,7 @@ const SECRETKEY= "habhai"
 // singup
 
 const signup = async (req,res)=>{
-    const {name,email,password} = req.body;
+    const {name,email,password,} = req.body;
     const user = await userModel.insertMany({name,email,password});
     return res.send("User created")
 }
@@ -23,7 +23,7 @@ const login= async (req , res)=>{
         return res.status(401).send("Invalid Credentials")
     }
     const token = jwt.sign({
-        id : user._id
+        id : user._id,
     },SECRETKEY, {expiresIn: "2 hours"})
     return res.send({msg : user,
         token:token

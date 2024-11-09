@@ -11,6 +11,9 @@ movierouter.get('/movies', async (req,res)=>{
     })
 })
 
+movierouter.get('/abcd', (req,res)=>{
+    return res.send("abcd")
+})
 
 
 movierouter.get('/:id', (req,res)=>{

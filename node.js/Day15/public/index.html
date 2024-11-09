@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    const data = document.getElementById("inp").target.value
+    
+  const socket = io();
+  socket.emit("message",data )
+</script>
+
+<body>
+    <h1>BaatChit</h1>
+    <form>
+        <input type="text" id="inp">
+        <button type="submit">SEND</button>
+    </form>
+</body>
+
+</html>

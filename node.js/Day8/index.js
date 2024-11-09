@@ -68,6 +68,19 @@ app.use((req,res,next)=>{
 })
 
 
+app.post("/create-lecture", (req,res)=>{
+    return res.send("created")
+})
+app.post("/delete-lecture", (req,res)=>{
+    return res.send("deleted")
+})
+app.post("/update-lecture", (req,res)=>{
+    return res.send("updated")
+})
+app.post("/get-lecture", (req,res)=>{
+    return res.send("Read")
+})
+
 
 
 

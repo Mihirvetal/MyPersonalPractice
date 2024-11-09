@@ -7,14 +7,26 @@ const PORT = 5000;
 app.use(express.json());
 
 
-app.use('/',movierouter);
+app.use(movierouter);
 
 
 
 
 
 
-app.listen(PORT,async  ()=>{
-    await connection;
-    console.log(`http://localhost:${PORT}`);
-})
+
+
+
+// app.listen(PORT,async  ()=>{
+//     await connection;
+//     console.log(`http://localhost:${PORT}`);
+// })
+
+app.listen(PORT, async () => {
+    try {
+      await connection;
+      console.log(`http://localhost:${PORT}`);
+    } catch (error) {
+      console.error("Database connection failed:", error);
+    }
+  });
