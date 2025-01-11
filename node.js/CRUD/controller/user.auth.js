@@ -1,21 +1,12 @@
 const jwt = require("jsonwebtoken")
 const userModel = require('../models/user.model')
-
-
 const SECRETKEY= "habhai"
 // singup
-
 const signup = async (req,res)=>{
     const {name,email,password,} = req.body;
     const user = await userModel.insertMany({name,email,password});
     return res.send("User created")
-}
-
-
-
-
-// login
-
+} //login
 const login= async (req , res)=>{
     const {email,password} = req.body;
     const user = await userModel.findOne({ email : email })
@@ -28,9 +19,5 @@ const login= async (req , res)=>{
     return res.send({msg : user,
         token:token
     })
-
-
 }
-
-
 module.exports = {login, signup};

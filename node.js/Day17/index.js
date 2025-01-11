@@ -14,8 +14,6 @@ const logger = winston.createLogger({
 
 
 
-
-
 app.get("/", (req, res) => {
     logger.info("called hello world")
   console.log("info: visited root route");

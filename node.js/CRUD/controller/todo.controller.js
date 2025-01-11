@@ -1,5 +1,16 @@
 const todomodel = require("../models/todo.model");
 
+const posttodo = async (req, res)=>{
+    try{
+        const body = req.body
+        const todo = await todomodel.insertMany(body);
+        return res.send("movie added")
+    }catch(er){
+        return res.status(500).json({ error: er.message })
+    }
+}
+
+
 const gettodo = async (req, res) => {
   try {
     const todo = await todomodel.find();
@@ -9,15 +20,21 @@ const gettodo = async (req, res) => {
   }
 };
 
-const posttodo = async (req, res)=>{
+
+
+
+
+const upTodo = async (req,res)=>{
     try{
-        const body = req.body
-        const todo = await todomodel.create(body);
-        return res.send("movie added")
+        const todo = req.params.id;
+        const updatedData = req.body;
+        const upd = await todomodel.updateOne({_id : todo},  { $set: updatedData })
     }catch(er){
-        return res.status(500).json({ error: er.message })
+        return res.status(500).json({error: er})
     }
 }
+
+
 
 // const deleteTodo = async (req, res)=>{
 //     try{
@@ -27,8 +44,6 @@ const posttodo = async (req, res)=>{
 //         return res.status(500).json({ error: er.message })
 //     }
 // }
-
-
 const deleteTodo = async (req, res) => {
     try {
         const todoId = req.params.id; // Extract the ID from the URL parameters
@@ -44,19 +59,6 @@ const deleteTodo = async (req, res) => {
         return res.status(500).json({ error: er.message }); // Send error message with status code
     }
 };
-
-
-
-const upTodo = async (req,res)=>{
-    try{
-        const todo = req.params.id;
-        const updatedData = req.body;
-        const upd = await todomodel.updateOne({_id : todo},  { $set: updatedData })
-    }catch(er){
-        return res.status(500).json({error: er})
-    }
-}
-
 
 
 

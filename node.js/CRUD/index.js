@@ -4,11 +4,8 @@ const connection = require('./db/connection')
 const todoRouter = require('./routes/todo.route')
 const userRouter = require('./routes/user.route')
 const jwt = require("jsonwebtoken")
-
 app.use(express.json());
 const SECRETKEY = "habhai"
-
-
 app.use('/',userRouter)
 app.use('/', todoRouter)
 app.use((req,res,next)=>{
@@ -22,9 +19,7 @@ app.use((req,res,next)=>{
     }catch{
         return res.status(401).send("invalid token")
     }
-    
 })
-
 app.get('/aboutpage',(req,res)=>{
     return res.send("about page this")
 })

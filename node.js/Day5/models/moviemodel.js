@@ -1,7 +1,7 @@
 const { Schema, model} = require('mongoose');
 
 
-// schema is to give the format of the input or data
+// schema is to give the format of the input of data
 const movieschema = new Schema({
     name: String ,
     rating: Number,

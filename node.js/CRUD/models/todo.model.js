@@ -9,3 +9,6 @@ const todomodel = model("todo", todoSchema);
 
 
 module.exports = todomodel;
+
+
+// [{},{},]

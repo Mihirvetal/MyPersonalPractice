@@ -1,13 +1,12 @@
 const {Router} = require('express');
 const movieRouter = Router();
-
 const connection= require('../db/connection')
 
 movieRouter.get('/a', (req,res)=>{
     return res.send("movies")
 })
 
-movieRouter.get('/', (req,res)=>{
+movieRouter.get('/data', (req,res)=>{
     connection.query(
         `SELECT * FROM movies`,
         function (err,data){
@@ -30,7 +29,8 @@ movieRouter.post('/newmovie', (req,res)=>{
 // to get a movie on a specific id then do this
 
 movieRouter.get("/:id", (req, res) => {
-    const { id } = req.params;
+    // const { id } = req.params;
+    const id  = req.params.id;
     connection.query(`SELECT * FROM movies WHERE id = ${id}`,  function (err, data) {
         return res.json(data);
     });

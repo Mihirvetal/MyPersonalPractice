@@ -1,0 +1,3 @@
+const ShowData = () =>{
+    console.log();
+}

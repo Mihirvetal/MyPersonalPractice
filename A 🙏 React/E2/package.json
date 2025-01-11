@@ -1,0 +1,22 @@
+{
+  "name": "e2",
+  "version": "1.0.0",
+  "description": "the react app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mihirvetal/MyPersonalPractice.git"
+  },
+  "author": "Mihir Vetal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mihirvetal/MyPersonalPractice/issues"
+  },
+  "homepage": "https://github.com/Mihirvetal/MyPersonalPractice#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}

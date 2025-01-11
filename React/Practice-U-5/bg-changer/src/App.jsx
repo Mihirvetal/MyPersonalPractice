@@ -3,12 +3,14 @@ import { useState } from "react";
 function App() {
   const [color, setColor] = useState("red");
   const [submit , setSubmit] = useState("");
-  const handleInputChange = (e) => {
-    setSubmit(e.target.value);
-  };
+
   const handleonchange = () =>{
     setColor(submit )
   }
+  const handleInputChange = (e) => {
+    setSubmit(e.target.value);
+  };
+  
 
   return (
     <div className="w-full " style={{ backgroundColor: color, height: "100px", width: "100px"} }>

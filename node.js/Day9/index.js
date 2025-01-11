@@ -95,7 +95,7 @@ const jwt = require("jsonwebtoken");
 const connection = require('./db/connection');
 const UserModel = require('./models/user.model');
 const authMW = require('./middlewares/auth.middleware');
-
+const {login, signup} = require('./controller/user.auth')
 const app = express();
 const PORT = 5000;
 const SECRETKEY = "HABHAITUHIHE";
@@ -106,28 +106,8 @@ app.get("/about", (req, res) => {
     res.send(UserModel.find());
 });
 
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-
-    try {
-        const user = await UserModel.findOne({ email: email });
-
-        if (!user || user.password !== password) {
-            return res.status(401).send("Invalid credentials");
-        }
-
-        const token = jwt.sign({
-            id: user._id,
-            name: user.name,
-            role: user.role
-        }, SECRETKEY, { expiresIn: "1 hour" });
-
-        res.send({ token });
-    } catch (error) {
-        console.error("Error during login:", error);
-        res.status(500).send("Internal Server Error");
-    }
-});
+app.post("/login", login);
+app.post("/signup", signup);
 
 // Apply authMW for routes that require authentication
 app.post("/create-lecture", authMW, (req, res) => {
