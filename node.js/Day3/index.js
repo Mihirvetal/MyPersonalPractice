@@ -26,6 +26,9 @@ app.get('/user/:userid', (req,res)=>{
         id:id
     })
 })
+
+// put is idempotent = that is we doing multiple of put request the result will remains the same as always
+// post is notidempotent = that means we do every time the post request the new data will ad in the db.
  
 // query params = Query parameters are a way to pass additional data in the URL of a request, typically used in GET requests. They are appended to the URL after a question mark (?) and consist of key-value pairs, separated by the ampersand (&). it always give the object as response
  
