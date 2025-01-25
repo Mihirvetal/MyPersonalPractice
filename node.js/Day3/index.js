@@ -31,7 +31,7 @@ app.get('/user/:userid', (req,res)=>{
 // post is notidempotent = that means we do every time the post request the new data will ad in the db.
  
 // query params = Query parameters are a way to pass additional data in the URL of a request, typically used in GET requests. They are appended to the URL after a question mark (?) and consist of key-value pairs, separated by the ampersand (&). it always give the object as response
- 
+ // localhost:5000/ha?q=hii
 app.get('/ha', (req,res)=>{
     const query = req.query
     console.log("query",query);
